@@ -3,20 +3,25 @@
 <html lang="bg">
 	<head>
 		<meta charset="UTF-8">
-			<title>
-				ЦЕЛИ НА ИИ
-			</title>
 		<style>
+			tittle
+			{
+				text-align: center; 
+			}
 			button 
 			{
 				display: block;
 				width: 100%;
 				padding: 10px;
 				margin: 10px;
+				margin-left: 50 px;
 				font-size: 15px;
 				cursor: pointer;
 			}
 		</style>
+			<title>
+				ЦЕЛИ НА ИИ
+			</title>
 	</head>
 	<body>
 		<table>
@@ -36,7 +41,7 @@
 					<button onclick="izbor(7)">Заключение</button>
 					<button onclick="izbor(8)">Използвана литература</button>
 				</td>
-				<td id="output">
+				<td id="tekst">
 		<script>
 			function izbor(num)
 			{
@@ -59,7 +64,7 @@
 
 			if (button && texts[button])
 			{
-				document.getElementById('output').textContent = texts[button];
+				document.getElementById('tekst').textContent = texts[button];
 			}
 		</script>
 				</td>
