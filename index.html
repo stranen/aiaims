@@ -3,22 +3,22 @@
 <html lang="bg">
 	<head>
 		<meta charset="UTF-8">
-		<style>
-			tittle
-			{
-				text-align: center; 
-			}
-			button 
-			{
-				display: block;
-				width: 100%;
-				padding: 10px;
-				margin: 10px;
-				margin-left: 50 px;
-				font-size: 15px;
-				cursor: pointer;
-			}
-		</style>
+<style>
+	tittle
+	{
+		text-align: center; 
+	}
+	button 
+	{
+		display: block;
+		width: 100%;
+		padding: 10px;
+		margin: 10px;
+		margin-left: 50 px;
+		font-size: 15px;
+		cursor: pointer;
+	}
+</style>
 			<title>
 				ЦЕЛИ НА ИИ
 			</title>
@@ -41,32 +41,33 @@
 					<button onclick="izbor(7)">Заключение</button>
 					<button onclick="izbor(8)">Използвана литература</button>
 				</td>
-				<td id="tekst">
-		<script>
-			function izbor(num)
-			{
-				window.location.href='index.html?button='+num;
-			}
-			const params= new URLSearchParams(window.location.search);
-			const button= params.get("button");
+				<td>
+					<p id="tekst">ТЕКСТ</p>
+<script>
+	function izbor(num)
+	{
+		window.location.href='index.html?button='+num;
+	}
+	const params= new URLSearchParams(window.location.search);
+	const button= params.get("button");
 
-			const texts= 
-			{
-				1: "Това е текст за бутон 1 (буква A)",
-				2: "Това е текст за бутон 2 (буква B)",
-				3: "Това е текст за бутон 3 (буква C)",
-				4: "Това е текст за бутон 4 (буква D)",
-				5: "Това е текст за бутон 5 (буква E)",
-				6: "Това е текст за бутон 6 (буква F)",
-				7: "Това е текст за бутон 7 (буква G)",
-				8: "Това е текст за бутон 8 (буква H)"
-			};
+	const texts= 
+	{
+		1: "Това е текст за бутон 1 (буква A)",
+		2: "Това е текст за бутон 2 (буква B)",
+		3: "Това е текст за бутон 3 (буква C)",
+		4: "Това е текст за бутон 4 (буква D)",
+		5: "Това е текст за бутон 5 (буква E)",
+		6: "Това е текст за бутон 6 (буква F)",
+		7: "Това е текст за бутон 7 (буква G)",
+		8: "Това е текст за бутон 8 (буква H)"
+	};
 
-			if (button && texts[button])
-			{
-				document.getElementById('tekst').textContent = texts[button];
-			}
-		</script>
+	if (button && texts[button])
+	{
+		document.getElementById('tekst').textContent = texts[button];
+	}
+</script>
 				</td>
 			</tr>
 		
