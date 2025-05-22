@@ -35,6 +35,11 @@
 		font-size: 15px;
 		cursor: pointer;
 	}
+	button.active
+	{
+		background-color: #blue;
+		color: white;
+	}
 	.izobrajenie-tekst
 	{
 		float: left;
@@ -70,6 +75,7 @@
 
 	function izbor(num)
 	{
+		sessionStorage.setItem('activeButton', num);
 		window.location.href = 'index.html?button=' + num;
 	}
 
@@ -88,9 +94,27 @@
 		8: "<img src='izobrajenie8.jpg' alt='Изображение за бутон 8' class='izobrajenie-tekst'>Това е текст за бутон 8 (буква H)"
 	};
 
-	if (button && tekstove[button]) 
+	if(button && tekstove[button]) 
 	{
 		document.getElementById('tekst').innerHTML = tekstove[button];
+	}
+	
+	const activeButton = sessionStorage.getItem('activeButton');
+	
+	if(activeButton)
+	{
+		const btns = document.querySelectorAll('button');
+		btns.forEach
+		(btn => 
+			{
+				btn.classList.remove('active');
+			}
+		);
+		const active = document.querySelector(`button[onclick="izbor(${activeButton})"]`);
+		if(active)
+		{
+			active.classList.add('active');
+		}
 	}
 	
 </script>
