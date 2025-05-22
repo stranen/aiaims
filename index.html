@@ -2,32 +2,30 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>8 бутона</title>
+    <title>ЦЕЛИ НА ИИ</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body 
+		{
             text-align: center;
         }
-        .buttons {
-            margin: 20px;
+        .buttons
+		{
+            margin: 10px;
         }
         button {
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 10px 10px;
+            font-size: 14px;
             margin: 5px;
             cursor: pointer;
-            display: block; /* Бутоните ще се показват един под друг */
-            width: 100px; /* Можеш да промениш ширината на бутоните */
+            display: block;
+            width: 100px;
             margin-left: auto;
             margin-right: auto;
         }
     </style>
 </head>
 <body>
-
-    <h1>Избери бутон:</h1>
     <div class="buttons">
-        <!-- Бутоните, които водят към същата страница, но с различни параметри -->
         <button onclick="window.location.href='index.html?button=1'">1</button>
         <button onclick="window.location.href='index.html?button=2'">2</button>
         <button onclick="window.location.href='index.html?button=3'">3</button>
@@ -37,24 +35,21 @@
         <button onclick="window.location.href='index.html?button=7'">7</button>
         <button onclick="window.location.href='index.html?button=8'">8</button>
     </div>
-
-    <h2>Резултат:</h2>
     <p id="output"></p>
 
     <script>
-        // Вземи параметъра от URL
         const urlParams = new URLSearchParams(window.location.search);
         const button = urlParams.get('button');
 
-        // В зависимост от избора, показваме съответната буква
         const output = document.getElementById('output');
         
-        if (button) {
-            const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+        if (button) 
+		{
+            const letters = ['aФДСФАСДФСДАФСДАФАДСФАСДФ', 'bЖЖЖЖЖ', 'cДДДДД', 'dЕЕЕЕЕ', 'eУУУУУ', 'fИИИИИ', 'gППППП', 'hКЛККЛЙКЛЛЛЛЛ'];
             if (button >= 1 && button <= 8) {
                 output.textContent = `Натиснат е бутон ${button}, съответната буква е: ${letters[button - 1]}`;
             } else {
-                output.textContent = 'Невалиден бутон!';
+                output.textContent = 'Нев!';
             }
         } else {
             output.textContent = 'Избери бутон!';
