@@ -3,48 +3,42 @@
 <html lang="bg">
 	<head>
 		<meta charset="UTF-8">
-			<title>
-				Цели на ИИ
-			</title>
-<style>
-	table
-	{
-		width: 100%;
-	}
-	tr, td
-	{
-		border: 1px solid black;		
-	}
-	.lqvo
-	{
-		width: 30%;
-	}
-	h1
-	{
-		text-align: center; 
-	}
-	button 
-	{
-		display: block;
-		width: 30%;
-		padding: 10px;
-		margin: 10px;
-		margin-left: 50px;
-		font-size: 15px;
-		cursor: pointer;
-	}
-</style>
+		<title>Цели на ИИ</title>
+		<style>
+			table {
+				width: 100%;
+			}
+			tr, td {
+				border: 1px solid black;		
+			}
+			.lqvo {
+				width: 30%;
+			}
+			h1 {
+				text-align: center; 
+			}
+			button {
+				display: block;
+				width: 30%;
+				padding: 10px;
+				margin: 10px;
+				margin-left: 50px;
+				font-size: 15px;
+				cursor: pointer;
+			}
+		</style>
 	</head>
+
 	<body>
 		<table>
 			<tr>
 				<td colspan="2">
-<h1>ЦЕЛИ НА ИИ</h1>		
+					<h1>ЦЕЛИ НА ИИ</h1>		
 				</td>
 			</tr>
 			<tr>
 				<td id="lqvo">
-<p id="output"></p>
+					<p id="output"></p>
 					<button onclick="izbor(1)">Увод</button>
 					<button onclick="izbor(2)">Какво е ИИ, видове, добри и лоши страни</button>
 					<button onclick="izbor(3)">От какво и кого се определят и зависят целите на ИИ</button>
@@ -55,16 +49,17 @@
 					<button onclick="izbor(8)">Използвана литература</button>
 				</td>
 				<td>
-<script>
-	function izbor(num)
-	{
-		window.location.href='index.html?button='+num;
-	}
-	const params= new URLSearchParams(window.location.search);
-	const button= params.get("button");
+					<p id="tekst">ТЕКСТ</p>
+					<script>
+						function izbor(num) {
+							window.location.href = 'index.html?button=' + num;
+						}
 
-	const tekstove= 
-	{
+						const params = new URLSearchParams(window.location.search);
+						const button = params.get("button");
+
+						// Текстовете с изображения, включени като HTML
+						const tekstove = {
 							1: "Това е текст за бутон 1 (буква A)<br><img src='izobrajenie1.gif' alt='Изображение за бутон 1' width='300'>",
 							2: "Това е текст за бутон 2 (буква B)<br><img src='izobrajenie2.gif' alt='Изображение за бутон 2' width='300'>",
 							3: "Това е текст за бутон 3 (буква C)<br><img src='izobrajenie3.gif' alt='Изображение за бутон 3' width='300'>",
@@ -73,15 +68,15 @@
 							6: "Това е текст за бутон 6 (буква F)<br><img src='izobrajenie6.gif' alt='Изображение за бутон 6' width='300'>",
 							7: "Това е текст за бутон 7 (буква G)<br><img src='izobrajenie7.gif' alt='Изображение за бутон 7' width='300'>",
 							8: "Това е текст за бутон 8 (буква H)<br><img src='izobrajenie8.gif' alt='Изображение за бутон 8' width='300'>"
-	};
+						};
 
-	if (button && tekstove[button])
-	{
-		document.getElementById('tekst').textContent = tekstove[button];
-	}
-</script>
+						// Поставяме HTML съдържанието в елемента с id 'tekst'
+						if (button && tekstove[button]) {
+							document.getElementById('tekst').innerHTML = tekstove[button];
+						}
+					</script>
 				</td>
 			</tr>
-		
+		</table>
 	</body>
 </html>
