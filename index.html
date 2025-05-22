@@ -1,13 +1,211 @@
-<!DOCTYPE html>
-<html lang="bg">
-<head>
-    <meta charset="UTF-8">
-    <title>Цели на ИИ</title>
-</head>
-<body>
-    <h1>ЦЕЛИ НА ИИ</h1>
-    <p>ТЕКСТ</p>
 
-    <button >СЪДЪРЖАНИЕ</button>
-</body>
+<?php
+	$novo_ime_stranica = "НАЧАЛО";
+	
+	//var_dump($_POST);
+	
+	$mess='';
+?>
+<?php
+	include "vryzka_s_MYSQL.php";
+	
+	include "syzdavane_na_bd_i_tablicite.php";
+?>
+
+<?php
+	if (   !isset($_POST['izvikvasht_buton'])   ) 
+	{	
+		$novo_ime_stranica = "НАЧАЛО";
+		
+		
+		
+		$izvikvasht_buton = "nachalni";
+	} 
+	else
+	{
+		$izvikvasht_buton=$_POST['izvikvasht_buton'];	
+
+		if(  ($izvikvasht_buton=="zapishi")||($izvikvasht_buton=="potyrsi")||($izvikvasht_buton=="nachalni")   )
+		{
+			$novo_ime_stranica = "НАЧАЛО";
+		}
+		elseif($izvikvasht_buton=="vyvedi")
+		{
+			$novo_ime_stranica = "ВЪВЕЖДАНЕ";
+		}
+		elseif($izvikvasht_buton=="tyrsi")
+		{
+			$novo_ime_stranica = "ТЪРСЕНЕ";
+		}
+	}
+?>
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="bg">
+
+	<head>
+		<meta charset="UTF-8">	
+		
+		<title>
+			КУРСОВА РАБОТА -/> ИС
+		</title>
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		
+	</head>
+	
+	<body>
+
+		<form action="index.php" method="POST">
+
+			<table>
+				<tr>
+					<td colspan='3'>
+<?php
+	echo "<p class='title' >".$novo_ime_stranica."<p>"; 
+?>
+					</td>				
+				</tr>
+				<tr>
+					<td>
+<?php
+    echo "<p><a href='https://www.uni-ruse.bg/' target='_blank'><font>ЛИНК КЪМ РУ</font></a></p>";
+?>
+					</td>
+					<td>
+&nbsp; 					
+					</td>
+					<td>
+<?php
+    echo "<p><a href='http://localhost/kursova_is/opisanie.php' target='_blank'><font>&nbsp;ОПИСАНИЕ&nbsp;</font></a></p>";
+?>
+					</td>					
+				</tr>
+				<tr>
+					<td colspan="3" class='rezultati'>
+			
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+<?php 
+	if($izvikvasht_buton == "nachalni")
+	{
+		include "sydyrjanie_nachalna_stranica.php";
+	}
+	else
+	{
+		if(   ($izvikvasht_buton=="vyvedi")||($izvikvasht_buton=="tyrsi")  )
+		{
+			include "tablica_vyvejdane_tyrsene_150225.php"; 
+		}
+		elseif($izvikvasht_buton=="zapishi")
+		{
+			include "sydyrjanie_nachalna_stranica.php";
+			include "post_info_tip_vyvejdane.php";
+			include "zapisvane.php";
+			$novo_ime_stranica=="НАЧАЛО";
+		}
+		elseif($izvikvasht_buton=="potyrsi")
+		{		
+			include "sydyrjanie_nachalna_stranica.php";
+			include "post_info_tip_tyrsene_1.php";
+			include "potyrsvane.php";
+			$novo_ime_stranica=="НАЧАЛО";
+		}
+	}
+?>
+					</td>
+				</tr>
+				<tr>
+					<td>	
+<?php
+	if($izvikvasht_buton=="vyvedi")
+	{
+		echo "<button type='submit' data-type='popylvane_zadyljitelno' onclick='zadyljitelno_li_popylvane(this)' name='izvikvasht_buton' class='buton' id='vajno' value='zapishi'  >Запиши в БД</button>";
+	}
+	else
+	{
+		echo "<button type='submit' name='izvikvasht_buton' class='buton' value='vyvedi'>ВЪВЕЖДАНЕ</button>";
+	}
+?>										
+					</td>
+					<td>
+<button type='submit' name='izvikvasht_buton' class='buton' value='nachalni' data-type='popylvane_izbiratelno' onclick='zadyljitelno_li_popylvane(this)'>НАЧАЛО</button>
+					</td>
+					<td>
+				
+<?php
+	if($izvikvasht_buton=="tyrsi")
+	{
+		echo "<button type='submit' name='izvikvasht_buton' class='buton' id='vajno' value='potyrsi' data-type='popylvane_izbiratelno' onclick='zadyljitelno_li_popylvane(this)' >Потърси в БД</button>";
+	}
+	else
+	{
+		echo "<button type='submit' name='izvikvasht_buton' class='buton' value='tyrsi' data-type='popylvane_izbiratelno' onclick='zadyljitelno_li_popylvane(this)' >ТЪРСЕНЕ</button>";
+	}
+?>	
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" class="rezultati">
+						РЕЗУЛТАТИ: <br />
+						(...) <br />
+<?php
+	$tablica="firmi";
+	include "proverka_broi_redove_v_tablica.php";
+	$broi_redove_v_tablica_firma=$broi_redove_v_tablicata;
+	
+	$tablica="magazini";
+	include "proverka_broi_redove_v_tablica.php";
+	$broi_redove_v_tablica_magazin=$broi_redove_v_tablicata;
+	
+	$tablica="meseci";
+	include "proverka_broi_redove_v_tablica.php";
+	$broi_redove_v_tablica_mesec=$broi_redove_v_tablicata;
+?>
+						Брой фирми: 
+<?php echo $broi_redove_v_tablica_firma ?>
+						<br />
+						Брой магазини: 
+<?php echo $broi_redove_v_tablica_magazin ?>				
+						<br />
+						Брой описи за месеци: 
+<?php echo $broi_redove_v_tablica_mesec ?>
+						<br />
+						<br />						
+<?php
+	echo $mess; 
+?>
+<?php
+	if($izvikvasht_buton == "potyrsi")
+	{
+		if(   (	$broqch_pylni_redove_masiv_magazini!=0)&&($broqch_pylni_redove_masiv_firmi!=0)&&($broqch_pylni_redove_masiv_meseci!=0)   )
+		{
+			include "potyrsvane_masiv_firmi_magazini.php";
+			include "potyrsvane_masiv_firmi_magazini___meseci.php";
+			include "izvejdane_rezultatite_na_ekrana.php"; 
+		}
+	}
+?>
+					</td>
+				</tr>
+			</table>
+				
+		</form>
+<?php
+	//include "zadyljitelno_li_popylvane.php"; 
+?>
+		<script src="zadyljitelno_li_popylvane.js" defer></script>
+	</body>
+	
 </html>
+
+<?php
+	//$conn->close();
+?>
+
