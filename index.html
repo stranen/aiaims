@@ -3,8 +3,11 @@
 <html lang="bg">
 	<head>
 		<meta charset="UTF-8">
+			<title>
+				Цели на ИИ
+			</title>
 <style>
-	tittle
+	title
 	{
 		text-align: center; 
 	}
@@ -14,20 +17,17 @@
 		width: 100%;
 		padding: 10px;
 		margin: 10px;
-		margin-left: 50 px;
+		margin-left: 50px;
 		font-size: 15px;
 		cursor: pointer;
 	}
 </style>
-			<title>
-				ЦЕЛИ НА ИИ
-			</title>
 	</head>
 	<body>
 		<table>
 			<tr>
 				<td colspan="2">
-<font>ЦЕЛИ НА ИИ</font>		
+<h1>ЦЕЛИ НА ИИ</h1>		
 				</td>
 			</tr>
 			<tr>
@@ -51,7 +51,7 @@
 	const params= new URLSearchParams(window.location.search);
 	const button= params.get("button");
 
-	const texts= 
+	const tekstove= 
 	{
 		1: "Това е текст за бутон 1 (буква A)",
 		2: "Това е текст за бутон 2 (буква B)",
@@ -63,9 +63,9 @@
 		8: "Това е текст за бутон 8 (буква H)"
 	};
 
-	if (button && texts[button])
+	if (button && tekstove[button])
 	{
-		document.getElementById('tekst').textContent = texts[button];
+		document.getElementById('tekst').textContent = tekstove[button];
 	}
 </script>
 				</td>
