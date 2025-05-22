@@ -1,73 +1,61 @@
-
 <!DOCTYPE html>
-
 <html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>8 бутона</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .buttons {
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
 
-	<head>
-		<meta charset="UTF-8">	
-		
-		<title>
-			ЦЕЛИ НА ИИ
-		</title>
+    <h1>Избери бутон:</h1>
+    <div class="buttons">
+        <!-- Бутоните, които водят към същата страница, но с различни параметри -->
+        <button onclick="window.location.href='index.html?button=1'">1</button>
+        <button onclick="window.location.href='index.html?button=2'">2</button>
+        <button onclick="window.location.href='index.html?button=3'">3</button>
+        <button onclick="window.location.href='index.html?button=4'">4</button>
+        <button onclick="window.location.href='index.html?button=5'">5</button>
+        <button onclick="window.location.href='index.html?button=6'">6</button>
+        <button onclick="window.location.href='index.html?button=7'">7</button>
+        <button onclick="window.location.href='index.html?button=8'">8</button>
+    </div>
 
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		
-	</head>
-	
-	<body>
+    <h2>Резултат:</h2>
+    <p id="output"></p>
 
-		<form action="index.php" method="POST">
+    <script>
+        // Вземи параметъра от URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const button = urlParams.get('button');
 
-			<table>
-				<tr>
-					<td colspan='3'>
-ААААААААААААААААААААААААААААААААААААААА
-					</td>				
-				</tr>
-				<tr>
-					<td>
-ББББББББББББББББББББББББББББББББББББББ
-					</td>
-					<td>
-ЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖЖ&nbsp; 					
-					</td>
-					<td>
-ВВВВВВВВВВВВВВВВВВВВВВВВВВВВВВВВВВВ
-					</td>					
-				</tr>
-				<tr>
-					<td colspan="3" class='rezultati'>
-ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДД			
-					</td>
-				</tr>
-				<tr>
-					<td colspan="3">
-ДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДДФФФФФФ
-					</td>
-				</tr>
-				<tr>
-					<td>	
-ДСФАДСФАСДФАСДФАСДФАДС						
-					</td>
-					<td>
-<button type='submit' name='izvikvasht_buton' class='buton' value='nachalni' data-type='popylvane_izbiratelno' onclick='zadyljitelno_li_popylvane(this)'>НАЧАЛО</button>
-					</td>
-					<td>			
-ДФССДАФСДФАСДФАДСФСАДФАСДФАСД
-					</td>
-				</tr>
-				<tr>
-					<td colspan="3" class="rezultati">
-						РЕЗУЛТАТИ: <br />
-			ФДФДСФСДАФАСДФСАДФ
-					</td>
-				</tr>
-			</table>
-				
-		</form>
+        // В зависимост от избора, показваме съответната буква
+        const output = document.getElementById('output');
+        
+        if (button) {
+            const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+            if (button >= 1 && button <= 8) {
+                output.textContent = `Натиснат е бутон ${button}, съответната буква е: ${letters[button - 1]}`;
+            } else {
+                output.textContent = 'Невалиден бутон!';
+            }
+        } else {
+            output.textContent = 'Избери бутон!';
+        }
+    </script>
 
-	</body>
-	
+</body>
 </html>
-
-
