@@ -4,34 +4,39 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Цели на ИИ</title>
-		<style>
-			table {
-				width: 100%;
-			}
-			tr, td {
-				border: 1px solid black;		
-			}
-			.lqvo {
-				width: 30%;
-			}
-			h1 {
-				text-align: center; 
-			}
-			button {
-				display: block;
-				width: 100%;
-				padding: 10px;
-				margin: 10px;
-				font-size: 15px;
-				cursor: pointer;
-			}
-			/* Стилове за изображението */
-			.img-text {
-				float: left;   /* Поставя изображението от ляво */
-				margin-right: 15px;  /* Отстъп между изображението и текста */
-				margin-bottom: 10px;  /* Малък отстъп отдолу */
-			}
-		</style>
+<style>
+	table
+	{
+		width: 100%;
+	}
+	tr, td
+	{
+		border: 1px solid black;		
+	}
+	.lqvo
+	{
+		width: 30%;
+	}
+	h1
+	{
+		text-align: center; 
+	}
+	button
+	{
+		display: block;
+		width: 100%;
+		padding: 10px;
+		margin: 10px;
+		font-size: 15px;
+		cursor: pointer;
+	}
+	.izobrajenie-tekst
+	{
+		float: left;
+		margin: 10px;
+		width: 30%;
+	}
+</style>
 	</head>
 
 	<body>
@@ -55,31 +60,34 @@
 				</td>
 				<td>
 					<p id="tekst">ТЕКСТ</p>
-					<script>
-						function izbor(num) {
-							window.location.href = 'index.html?button=' + num;
-						}
+<script>
 
-						const params = new URLSearchParams(window.location.search);
-						const button = params.get("button");
+	function izbor(num)
+	{
+		window.location.href = 'index.html?button=' + num;
+	}
 
-						// Текстовете с изображения, включени като HTML
-						const tekstove = {
-							1: "<img src='izobrajenie1.jpg' alt='Изображение за бутон 1' class='img-text'>Това е текст за бутон 1 (буква A)",
-							2: "<img src='izobrajenie2.jpg' alt='Изображение за бутон 2' class='img-text'>Това е текст за бутон 2 (буква B)",
-							3: "<img src='izobrajenie3.jpg' alt='Изображение за бутон 3' class='img-text'>Това е текст за бутон 3 (буква C)",
-							4: "<img src='izobrajenie4.jpg' alt='Изображение за бутон 4' class='img-text'>Това е текст за бутон 4 (буква D)",
-							5: "<img src='izobrajenie5.jpg' alt='Изображение за бутон 5' class='img-text'>Това е текст за бутон 5 (буква E)",
-							6: "<img src='izobrajenie6.jpg' alt='Изображение за бутон 6' class='img-text'>Това е текст за бутон 6 (буква F)",
-							7: "<img src='izobrajenie7.jpg' alt='Изображение за бутон 7' class='img-text'>Това е текст за бутон 7 (буква G)",
-							8: "<img src='izobrajenie8.jpg' alt='Изображение за бутон 8' class='img-text'>Това е текст за бутон 8 (буква H)"
-						};
+	const params = new URLSearchParams(window.location.search);
+	const button = params.get("button");
 
-						// Поставяме HTML съдържанието в елемента с id 'tekst'
-						if (button && tekstove[button]) {
-							document.getElementById('tekst').innerHTML = tekstove[button];
-						}
-					</script>
+	const tekstove = 
+	{
+		1: "<img src='izobrajenie1.jpg' alt='Изображение за бутон 1' class='izobrajenie-tekst'>Това е текст за бутон 1 (буква A)",
+		2: "<img src='izobrajenie2.jpg' alt='Изображение за бутон 2' class='izobrajenie-tekst'>Това е текст за бутон 2 (буква B)",
+		3: "<img src='izobrajenie3.jpg' alt='Изображение за бутон 3' class='izobrajenie-tekst'>Това е текст за бутон 3 (буква C)",
+		4: "<img src='izobrajenie4.jpg' alt='Изображение за бутон 4' class='izobrajenie-tekst'>Това е текст за бутон 4 (буква D)",
+		5: "<img src='izobrajenie5.jpg' alt='Изображение за бутон 5' class='izobrajenie-tekst'>Това е текст за бутон 5 (буква E)",
+		6: "<img src='izobrajenie6.jpg' alt='Изображение за бутон 6' class='izobrajenie-tekst'>Това е текст за бутон 6 (буква F)",
+		7: "<img src='izobrajenie7.jpg' alt='Изображение за бутон 7' class='izobrajenie-tekst'>Това е текст за бутон 7 (буква G)",
+		8: "<img src='izobrajenie8.jpg' alt='Изображение за бутон 8' class='izobrajenie-tekst'>Това е текст за бутон 8 (буква H)"
+	};
+
+	if (button && tekstove[button]) 
+	{
+		document.getElementById('tekst').innerHTML = tekstove[button];
+	}
+	
+</script>
 				</td>
 			</tr>
 		</table>
